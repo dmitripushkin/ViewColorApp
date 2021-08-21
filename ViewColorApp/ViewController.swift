@@ -8,7 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     
     @IBOutlet weak var colorView: UIView!
     
@@ -26,7 +25,6 @@ class ViewController: UIViewController {
         colorView.layer.cornerRadius = 25
         colorView.backgroundColor = .black
         
-        
         redSlider.setValue(0, animated: false)
         greenSlider.setValue(0, animated: false)
         blueSlider.setValue(0, animated: false)
@@ -36,24 +34,23 @@ class ViewController: UIViewController {
         blueLabelAmount.text = String(format: "%.2f", blueSlider.value)
         
     }
-
+    
     @IBAction func redSliderAction() {
         redLabelAmount.text = String(format: "%.2f", redSlider.value)
+        
         colorView.backgroundColor = UIColor(displayP3Red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
-            
     }
     
     @IBAction func greenSliderAction() {
         greenLabelAmount.text = String(format: "%.2f", greenSlider.value)
-        colorView.backgroundColor = UIColor(displayP3Red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
         
+        colorView.backgroundColor = UIColor(displayP3Red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
     }
     
     @IBAction func blueSliderAction() {
         blueLabelAmount.text = String(format: "%.2f", blueSlider.value)
+        
         colorView.backgroundColor = UIColor(displayP3Red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
-   
+    }
     
-}
-
 }
