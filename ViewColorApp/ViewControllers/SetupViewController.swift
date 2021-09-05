@@ -29,36 +29,58 @@ class SetupViewController: UIViewController {
         
         colorView.layer.cornerRadius = 25
         
+        setColor()
+        
+        setValue(for: redLabelAmount,
+                 greenLabelAmount,
+                 blueLabelAmount
+        )
+    }
+    
+    // MARK: - IB Actions
+    @IBAction func rgbSlider(_ sender: UISlider) {
+        setColor()
+        
+        switch sender {
+        case redSlider:
+            redLabelAmount.text = string(from: redSlider)
+        case greenSlider:
+            greenLabelAmount.text = string(from: greenSlider)
+        default:
+            blueLabelAmount.text = string(from: blueSlider)
+        }
+    }
+    
+    // MARK: - Private Methods
+    private func setColor() {
         colorView.backgroundColor = UIColor(
             displayP3Red: CGFloat(redSlider.value),
             green: CGFloat(greenSlider.value),
             blue: CGFloat(blueSlider.value),
             alpha: 1
         )
-        
-        redLabelAmount.text = String(format: "%.2f", redSlider.value)
-        greenLabelAmount.text = String(format: "%.2f", greenSlider.value)
-        blueLabelAmount.text = String(format: "%.2f", blueSlider.value)
-        
     }
     
-    // MARK: - IB Actions
-    @IBAction func redSliderAction() {
-        redLabelAmount.text = String(format: "%.2f", redSlider.value)
-        
-        colorView.backgroundColor = UIColor(displayP3Red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+    private func setValue(for labels: UILabel...) {
+        labels.forEach { label in
+            switch label {
+            case redLabelAmount:
+                redLabelAmount.text = string(from: redSlider)
+            case greenLabelAmount:
+                greenLabelAmount.text = string(from: greenSlider)
+            default:
+                blueLabelAmount.text = string(from: blueSlider)
+            }
+        }
     }
     
-    @IBAction func greenSliderAction() {
-        greenLabelAmount.text = String(format: "%.2f", greenSlider.value)
-        
-        colorView.backgroundColor = UIColor(displayP3Red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+    private func string(from slider: UISlider) -> String {
+        String(format: "%.2f", slider.value)
     }
-    
-    @IBAction func blueSliderAction() {
-        blueLabelAmount.text = String(format: "%.2f", blueSlider.value)
-        
-        colorView.backgroundColor = UIColor(displayP3Red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
-    }
-    
 }
+
+
+
+
+
+
