@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    
+class SetupViewController: UIViewController {
+    // MARK: - IB Outlets
     @IBOutlet weak var colorView: UIView!
     
     @IBOutlet weak var redLabelAmount: UILabel!
@@ -19,15 +19,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     
+    @IBOutlet weak var redAmountTF: UITextField!
+    @IBOutlet weak var greenAmountTF: UITextField!
+    @IBOutlet weak var blueAmountTF: UITextField!
+    
+    // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
         colorView.layer.cornerRadius = 25
-        colorView.backgroundColor = .black
         
-        redSlider.setValue(0, animated: false)
-        greenSlider.setValue(0, animated: false)
-        blueSlider.setValue(0, animated: false)
+        colorView.backgroundColor = UIColor(
+            displayP3Red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
+            alpha: 1
+        )
         
         redLabelAmount.text = String(format: "%.2f", redSlider.value)
         greenLabelAmount.text = String(format: "%.2f", greenSlider.value)
@@ -35,6 +42,7 @@ class ViewController: UIViewController {
         
     }
     
+    // MARK: - IB Actions
     @IBAction func redSliderAction() {
         redLabelAmount.text = String(format: "%.2f", redSlider.value)
         
