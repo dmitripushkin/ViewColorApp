@@ -56,15 +56,47 @@
 		BF796E6C26D13A22008E486F /* ViewColorApp */ = {
 			isa = PBXGroup;
 			children = (
-				BF796E6D26D13A22008E486F /* AppDelegate.swift */,
-				BF796E6F26D13A22008E486F /* SceneDelegate.swift */,
-				BF796E7126D13A22008E486F /* ViewController.swift */,
-				BF796E7326D13A22008E486F /* Main.storyboard */,
-				BF796E7626D13A23008E486F /* Assets.xcassets */,
-				BF796E7826D13A23008E486F /* LaunchScreen.storyboard */,
-				BF796E7B26D13A23008E486F /* Info.plist */,
+				BFA8AE6026E51C60001E8D17 /* ViewControllers */,
+				BFA8AE6126E51C7C001E8D17 /* Storyboards */,
+				BFA8AE6326E51D02001E8D17 /* App */,
+				BFA8AE6226E51CE3001E8D17 /* Resources */,
 			);
 			path = ViewColorApp;
+			sourceTree = "<group>";
+		};
+		BFA8AE6026E51C60001E8D17 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BF796E7126D13A22008E486F /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BFA8AE6126E51C7C001E8D17 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				BF796E7326D13A22008E486F /* Main.storyboard */,
+				BF796E7826D13A23008E486F /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		BFA8AE6226E51CE3001E8D17 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BF796E7626D13A23008E486F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BFA8AE6326E51D02001E8D17 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BF796E6D26D13A22008E486F /* AppDelegate.swift */,
+				BF796E6F26D13A22008E486F /* SceneDelegate.swift */,
+				BF796E7B26D13A23008E486F /* Info.plist */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,7 +319,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ViewColorApp/Info.plist;
+				INFOPLIST_FILE = ViewColorApp/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +337,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ViewColorApp/Info.plist;
+				INFOPLIST_FILE = ViewColorApp/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
