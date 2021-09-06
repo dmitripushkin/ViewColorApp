@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SetupColorViewController.swift
 //  ViewColorApp
 //
 //  Created by Повелитель on 21.08.2021.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-class SetupViewController: UIViewController {
+class SetupColorViewController: UIViewController {
     // MARK: - IB Outlets
     @IBOutlet weak var colorView: UIView!
-    
+        
     @IBOutlet weak var redLabelAmount: UILabel!
     @IBOutlet weak var greenLabelAmount: UILabel!
     @IBOutlet weak var blueLabelAmount: UILabel!
@@ -23,6 +23,9 @@ class SetupViewController: UIViewController {
     @IBOutlet weak var greenAmountTF: UITextField!
     @IBOutlet weak var blueAmountTF: UITextField!
     
+    // MARK: - Public properties
+    var delegate: SetupColorViewControllerDelegate!
+    
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +35,8 @@ class SetupViewController: UIViewController {
         setColor()
         
         setValue(for: redLabelAmount,
-                 greenLabelAmount,
-                 blueLabelAmount
+                      greenLabelAmount,
+                      blueLabelAmount
         )
     }
     
@@ -49,6 +52,14 @@ class SetupViewController: UIViewController {
         default:
             blueLabelAmount.text = string(from: blueSlider)
         }
+    }
+    
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        delegate.updateValuesFor(
+            red: redLabelAmount.text ?? "0",
+            green: greenLabelAmount.text ?? "0",
+            blue: blueLabelAmount.text ?? "0"
+        )
     }
     
     // MARK: - Private Methods
@@ -78,7 +89,6 @@ class SetupViewController: UIViewController {
         String(format: "%.2f", slider.value)
     }
 }
-
 
 
 
